@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <link rel="stylesheet" href="style.css">
+    <title>Hello World!</title>
+  </head>
+  <body>
+<div id="scannerView">
+  <h1 id="show_settings">ipscan</h1>
+  <div id="scanned_list"></div>
+</div>
+
+<div id="settingsView">
+  <h1 id="show_menu">Settings</h1>
+
+  <div class="ip_input">
+    <label for="Ip Address">Target <i>ip range</i>: &nbsp; </label>
+    <input type="text" id='ip_range' placeholder="192.168.1.1-50" />
+
+    <button onclick="changeIP()">Save</button>
+  </div>
+
+</div>
+
+
+    <script src="./renderer.js"></script>
+  </body>
+</html>
