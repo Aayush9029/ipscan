@@ -31,7 +31,6 @@ fs.readFile(datafile, (err, data) => {
 });
 
 
-
 function updateAppData(){
 
   let user_ip =  "192.168.1.1-2";

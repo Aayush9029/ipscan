@@ -74,14 +74,14 @@ h1:hover {
 }
 
 #settingsView{
-  /* display: none; */
+  display: none;
   margin-top: 40px;
 
 
 }
 
 #scannerView{
-  display: none;
+  display: block;
 }
 
 i{

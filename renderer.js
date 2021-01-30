@@ -24,3 +24,5 @@ document.getElementById("show_settings").addEventListener('click', ()=>{
     document.getElementById("scannerView").style.display = "block"
   
   })
+  
+  document.getElementById("updateApp").addEventListener('click', updateAppData)
