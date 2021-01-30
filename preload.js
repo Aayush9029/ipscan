@@ -2,12 +2,66 @@
 // It has the same sandbox as a Chrome extension.
 var evilscan = require('evilscan');
 const { orderBy } = require('natural-orderby')
+const fs = require("fs");
+const path = require("path");
 
+
+let ip_target;
+let port_target;
+
+var datafile = path.join(__dirname, "data/appData.json");
+
+
+// Reading Saved IP AND PORT
+fs.readFile(datafile, (err, data) => {
+  let firstTime = JSON.parse(data);
+  ip_target = firstTime.ip;
+  port_target = firstTime.port;
+
+  if (err || !ip_target) {
+    let appData = {
+      ip: "192.168.1.1-50",
+      port: "20,21,22,80"
+    };
+    let data = JSON.stringify(appData);
+    fs.writeFileSync(datafile, data);
+  }
+  scan()
+  console.log(ip_target, port_target)
+});
+
+
+
+function updateAppData(){
+
+  let user_ip =  "192.168.1.1-2";
+  let user_port = "20,21,22,80";
+
+  user_ip = document.getElementById("ip_range").value;
+  user_port = document.getElementById("port_range").nodeValue;
+  
+  console.log(user_ip, user_port)
+
+  fs.readFile(datafile, (err_, data_) => {
+  
+      let appData = {
+        ip: user_ip,
+        port: user_port
+      };
+
+      let data = JSON.stringify(appData);
+      fs.writeFileSync(datafile, data);
+    scan()
+  
+    console.log(ip_target, port_target)
+  });
+}
+
+function scan(){
 let found_ip =  [];
-
 var options = {
-    target:'192.168.1.1-50',
-    port:'20,21,22,80,443',
+    target:ip_target,
+    port: port_target,
     status:'TROU', // Timeout, Refused, Open, Unreachable
     // banner:true,
     display: 'json',
@@ -37,25 +91,11 @@ scanner.on('error',function(err) {
 });
 
 scanner.on('done',function() {
-    // finished !
-    console.log(found_ip)
     found_ip = orderBy(found_ip)
     sortElement()
 });
 
 scanner.run();
-
-window.addEventListener('DOMContentLoaded', () => {
-
-  const replaceText = (selector, text) => {
-    const element = document.getElementById(selector)
-    if (element) element.innerText = text
-  }
-
-  for (const type of ['chrome', 'node', 'electron']) {
-    replaceText(`${type}-version`, process.versions[type])
-  }
-})
 
 
 function addElement (ip) {
@@ -70,8 +110,6 @@ function addElement (ip) {
 
 
 function sortElement() {
-
-
   const parent_div = document.getElementById("scanned_list");
   parent_div.innerHTML="";
   for (let i = 0; i < found_ip.length; i++) {
@@ -81,4 +119,5 @@ function sortElement() {
    parent_div.appendChild(newDiv);
     
   }
+}
 }

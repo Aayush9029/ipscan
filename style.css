@@ -17,7 +17,7 @@ body {
 input{
   width: 170px;
 
-  margin-bottom: 3vh;
+  margin-bottom: 5vh;
   display: inline;
   font-size:14px;
   font-family: 'Poppins',sans-serif;
@@ -31,9 +31,13 @@ input{
   transition: box-shadow 0.3s ease-in-out;
 }
 
+#port_range{
+  width: 155px;
+}
+
 button {
   width: 100%;
-  margin-bottom: 3vh;
+  margin-bottom: 1vh;
   display: block;
   font-size:14px;
   font-family: 'Poppins',sans-serif;
@@ -54,16 +58,18 @@ button:hover {
 
 /* Style the links inside the navigation bar */
  h1 {
-  color: #000000;
+  color: #6948ff;
+
   margin-top: 40px;
   transition:  0.3s ease-in-out;
 
 }
 h1:hover {
-  color: #6948ff;
+  color: #000000;
   margin-top: 40px;
   transition: 0.3s ease-in-out;
   cursor: pointer;
+  text-decoration: hotpink underline;
 
 }
 
@@ -84,4 +90,19 @@ i{
 
 .ip_input{
   margin: 10px;
+}
+p{
+  color: grey;
+  font-family: 'Courier New', Courier, monospace;
+  margin: 5px;
+}
+
+.notes{
+  color: #6948ff;
+  margin-top: 3vh;
+
+}
+
+.details{
+  margin-top: 5vh;
 }

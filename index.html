@@ -2,16 +2,17 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+            <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'"> -->
     <link rel="stylesheet" href="style.css">
-    <title>Hello World!</title>
+    <title>IPSCAN</title>
   </head>
   <body>
 <div id="scannerView">
   <h1 id="show_settings">ipscan</h1>
   <div id="scanned_list"></div>
 </div>
+
 
 <div id="settingsView">
   <h1 id="show_menu">Settings</h1>
@@ -20,8 +21,16 @@
     <label for="Ip Address">Target <i>ip range</i>: &nbsp; </label>
     <input type="text" id='ip_range' placeholder="192.168.1.1-50" />
 
-    <button onclick="changeIP()">Save</button>
+    <label for="Port">Target <i>port range</i>: &nbsp; </label>
+    <input type="text" id='port_range' placeholder="20-80 or 443,21,8080" />
+    
+    <button onclick="updateAppData()">Save</button>
   </div>
+<div class="details">
+  <p id="current_ip_range_text">Saved IP Range: 192.168.1.1-50</p>
+  <p id="current_port_range_text">Saved Port Range: 20-24</p>
+</div>
+<p class='notes'>Port Range is used for finding IPs not for finding open ports.</p>
 
 </div>
 
