@@ -20,7 +20,7 @@
   "author": "GitHub",
   "license": "GPL-3.0",
   "devDependencies": {
-    "electron": "^11.2.1",
+    "electron": "^11.2.2",
     "electron-packager": "^15.2.0"
   },
   "dependencies": {
