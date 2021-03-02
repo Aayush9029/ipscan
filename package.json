@@ -24,7 +24,7 @@
     "electron-packager": "^15.2.0"
   },
   "dependencies": {
-    "evilscan": "^1.7.9",
+    "evilscan": "^1.8.0",
     "natural-orderby": "^2.0.3"
   },
   "bugs": {
